@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Downloader Test & Demo Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #121827;
+      --border: rgba(255, 255, 255, 0.08);
+      --primary: #6366f1;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff 40%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+    .banner {
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      padding: 16px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      color: #c7d2fe;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 24px;
+    }
+    .feed-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .card-header {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), #ec4899);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #fff;
+    }
+    .user-info h3 { font-size: 14px; font-weight: 600; }
+    .user-info span { font-size: 12px; color: var(--text-muted); }
+    .card-caption {
+      padding: 12px 18px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #cbd5e1;
+    }
+    .video-wrapper {
+      position: relative;
+      background: #000;
+      width: 100%;
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    video {
+      width: 100%;
+      max-height: 400px;
+      display: block;
+    }
+    .card-footer {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+    .tag-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .tag-fb { background: rgba(59, 130, 246, 0.2); color: #93c5fd; }
+    .tag-insta { background: rgba(236, 72, 153, 0.2); color: #f9a8d4; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Nova Video Downloader - Demo & Test Lab</h1>
+      <p class="subtitle">Use this page to test in-page floating download buttons, video sniffing, and popup downloading.</p>
+    </header>
+
+    <div class="banner">
+      <span>💡</span>
+      <span><strong>Testing Tip:</strong> Load the extension in Chrome via <code>chrome://extensions</code> (Load unpacked), then refresh this page. Hover over videos to test the floating download pill, or click the Nova icon in the Chrome toolbar!</span>
+    </div>
+
+    <div class="demo-grid">
+      <!-- Simulated Facebook Video Post -->
+      <article class="feed-card" role="article">
+        <div class="card-header">
+          <div class="avatar">FB</div>
+          <div class="user-info">
+            <h3>Nature & Wildlife Explorers</h3>
+            <span>Sponsored • 2 hours ago • <span class="tag-badge tag-fb">Facebook Simulated</span></span>
+          </div>
+        </div>
+        <div class="card-caption">
+          Amazing high-definition wildlife capture in 1080p! Test Nova Video Downloader detection and download speed.
+        </div>
+        <div class="video-wrapper">
+          <video controls preload="metadata" poster="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg">
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+        <div class="card-footer">
+          <span>❤️ 24.5K Likes</span>
+          <span>💬 1.2K Comments</span>
+          <span>🔄 3.4K Shares</span>
+        </div>
+      </article>
+
+      <!-- Simulated Instagram Reel Post -->
+      <article class="feed-card" role="article">
+        <div class="card-header">
+          <div class="avatar" style="background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);">IG</div>
+          <div class="user-info">
+            <h3>@urban_cinematics</h3>
+            <span>Instagram Reel • Original Audio • <span class="tag-badge tag-insta">Instagram Simulated</span></span>
+          </div>
+        </div>
+        <div class="card-caption">
+          Drone flying through the canyon at sunset 🌅 #cinematic #travel #reels #explore
+        </div>
+        <div class="video-wrapper">
+          <video controls preload="metadata" poster="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg">
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+        <div class="card-footer">
+          <span>❤️ 158.2K Likes</span>
+          <span>💬 3.8K Comments</span>
+          <span>✈️ Share to Story</span>
+        </div>
+      </article>
+
+      <!-- Simulated Web HD Stream Video -->
+      <article class="feed-card" role="article">
+        <div class="card-header">
+          <div class="avatar" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">HD</div>
+          <div class="user-info">
+            <h3>Blender Studio Showcase</h3>
+            <span>Open Movie Project • 1080p Full HD</span>
+          </div>
+        </div>
+        <div class="card-caption">
+          For Bigger Blazes - Animated showcase film in crisp 60fps MP4.
+        </div>
+        <div class="video-wrapper">
+          <video controls preload="metadata" poster="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerBlazes.jpg">
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+        <div class="card-footer">
+          <span>Format: MP4 (H.264)</span>
+          <span>Resolution: 1920x1080</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Nova Video Downloader</title>
+  <link rel="stylesheet" href="options.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="options-wrapper">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="../icons/icon48.png" alt="Nova" class="brand-logo">
+        <div class="brand-details">
+          <h2 class="brand-title">Nova Video</h2>
+          <span class="brand-version">v1.0.0</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#general" class="nav-link active" data-tab="general">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          General Settings
+        </a>
+        <a href="#guide" class="nav-link" data-tab="guide">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+          Platform Guide (FB, Insta, Web)
+        </a>
+        <a href="#about" class="nav-link" data-tab="about">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12.01" y2="8"/>
+          </svg>
+          About & FAQ
+        </a>
+      </nav>
+
+      <div class="sidebar-status">
+        <span class="status-indicator"></span>
+        <span>Extension Active</span>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- General Settings Tab -->
+      <section id="tab-general" class="tab-pane active">
+        <div class="pane-header">
+          <h1 class="pane-title">Preferences & Downloads</h1>
+          <p class="pane-subtitle">Configure how Nova detects and saves videos across your browser.</p>
+        </div>
+
+        <form id="settings-form" class="settings-grid">
+          <!-- In-Page Floating Button Setting -->
+          <div class="setting-card">
+            <div class="setting-info">
+              <h2 class="setting-title">In-Page Floating Download Button</h2>
+              <p class="setting-desc">Displays a sleek floating "⬇ Download" pill button on the top-right of videos when hovering over them on Facebook, Instagram, and web pages.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="show-floating-btn" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <!-- Download Subfolder Setting -->
+          <div class="setting-card vertical">
+            <div class="setting-info">
+              <h2 class="setting-title">Download Subfolder</h2>
+              <p class="setting-desc">Save downloaded videos into a dedicated subfolder within your default Downloads directory.</p>
+            </div>
+            <div class="input-group">
+              <span class="input-prefix">Downloads /</span>
+              <input type="text" id="download-folder" placeholder="NovaDownloads" value="NovaDownloads">
+            </div>
+          </div>
+
+          <!-- Filename Pattern Setting -->
+          <div class="setting-card vertical">
+            <div class="setting-info">
+              <h2 class="setting-title">Filename Naming Pattern</h2>
+              <p class="setting-desc">Choose how downloaded video files are automatically named.</p>
+            </div>
+            <div class="select-group">
+              <select id="naming-pattern">
+                <option value="platform_title_date">[Platform]_[Title]_[Date].mp4 (Recommended)</option>
+                <option value="platform_timestamp">[Platform]_[Timestamp].mp4</option>
+                <option value="title_only">[Title].mp4</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Minimum File Size Filter Setting -->
+          <div class="setting-card vertical">
+            <div class="setting-info">
+              <h2 class="setting-title">Ignore Video Clutter Smaller Than</h2>
+              <p class="setting-desc">Filter out tiny video ads, micro-animations, or tracking beacons from the popup video list.</p>
+            </div>
+            <div class="select-group">
+              <select id="min-size-filter">
+                <option value="65536">64 KB (Show all videos)</option>
+                <option value="262144">256 KB (Recommended)</option>
+                <option value="1048576">1 MB (Filter small animations)</option>
+                <option value="5242880">5 MB (Only large videos/reels)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="save-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+              Save Changes
+            </button>
+            <button type="button" class="btn btn-secondary" id="reset-btn">Reset Defaults</button>
+            <span id="save-feedback" class="feedback-text hidden">✓ Settings saved successfully!</span>
+          </div>
+        </form>
+      </section>
+
+      <!-- Platform Guide Tab -->
+      <section id="tab-guide" class="tab-pane hidden">
+        <div class="pane-header">
+          <h1 class="pane-title">Platform Guide & How-To</h1>
+          <p class="pane-subtitle">Learn how to easily capture and download videos on each platform.</p>
+        </div>
+
+        <div class="guide-grid">
+          <!-- Facebook Card -->
+          <div class="guide-card">
+            <div class="guide-badge fb-badge">Facebook</div>
+            <h2 class="guide-title">Downloading Facebook Videos & Reels</h2>
+            <ul class="guide-steps">
+              <li>Open any Facebook video, Reel, or Watch stream.</li>
+              <li>Press <strong>Play</strong> on the video so the browser starts buffering the stream.</li>
+              <li>Hover over the video to click the floating <strong>⬇ Download</strong> button, or click the Nova icon in the Chrome toolbar.</li>
+              <li>The popup displays the highest available MP4 stream ready for instant 1-click download.</li>
+            </ul>
+          </div>
+
+          <!-- Instagram Card -->
+          <div class="guide-card">
+            <div class="guide-badge insta-badge">Instagram</div>
+            <h2 class="guide-title">Downloading Instagram Reels & Posts</h2>
+            <ul class="guide-steps">
+              <li>Navigate to Instagram and open any post or Reel.</li>
+              <li>When the Reel starts playing, Nova's in-page download pill appears on the top-right corner.</li>
+              <li>Click the download pill or open the Nova popup to download the full HD MP4 file.</li>
+              <li>The post creator handle (e.g. <code>@username</code>) is automatically included in the filename!</li>
+            </ul>
+          </div>
+
+          <!-- YouTube Card -->
+          <div class="guide-card">
+            <div class="guide-badge yt-badge">YouTube Notice</div>
+            <h2 class="guide-title">Understanding YouTube Policy</h2>
+            <ul class="guide-steps">
+              <li>Chrome Web Store policies strictly forbid extensions from providing 1-click downloads for YouTube videos due to Google's Terms of Service.</li>
+              <li>Nova Downloader detects YouTube videos, displays their title and channel metadata, and provides detected stream addresses or copy links.</li>
+              <li>For direct 1-click HD downloads, Nova works without restrictions on <strong>Facebook, Instagram, TikTok, Twitter/X, Reddit, Vimeo</strong>, and thousands of video sites!</li>
+            </ul>
+          </div>
+
+          <!-- Universal Web Card -->
+          <div class="guide-card">
+            <div class="guide-badge web-badge">Universal Web</div>
+            <h2 class="guide-title">Any Video Site / Web Page</h2>
+            <ul class="guide-steps">
+              <li>Nova features a dual-layer media scanner:
+                <strong>Network Sniffer</strong> (captures live MP4, WEBM, M3U8 streams) +
+                <strong>DOM Scanner</strong> (detects HTML5 video players).</li>
+              <li>Works on news websites, blogs, streaming portals, and social networks automatically.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Tab -->
+      <section id="tab-about" class="tab-pane hidden">
+        <div class="pane-header">
+          <h1 class="pane-title">About Nova Video Downloader</h1>
+          <p class="pane-subtitle">High-performance media capture extension built for Chrome Manifest V3.</p>
+        </div>
+
+        <div class="about-card">
+          <h2 class="about-headline">Fast, Clean, and Free of Ads</h2>
+          <p class="about-text">
+            Nova Video Downloader was built to provide a clean, modern, and reliable video downloading experience without bloatware, tracking, or invasive popups. It uses high-efficiency Chrome Manifest V3 APIs for minimal memory and CPU footprint.
+          </p>
+
+          <div class="feature-list">
+            <div class="feature-item">
+              <span class="feature-icon">⚡</span>
+              <div>
+                <strong>Zero-Lag Dual Sniffer</strong>
+                <p>Combines real-time network response inspection with intelligent DOM element scanning.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🛡️</span>
+              <div>
+                <strong>Manifest V3 Safe</strong>
+                <p>Fully compliant with the latest Chrome standards for security, speed, and privacy.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🎬</span>
+              <div>
+                <strong>In-Popup Player</strong>
+                <p>Preview videos in full HD before downloading to verify audio and video clarity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
